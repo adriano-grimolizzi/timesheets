@@ -1,11 +1,11 @@
 export const getMonthName = (monthNumber) => {
     const date = new Date()
     date.setMonth(monthNumber - 1)
-    return date.toLocaleString('en-US', { month: 'long' })
+    return date.toLocaleString('en-US', { month: 'long' }).toLowerCase()
 }
 
 export const getDayName = (dayNumber) => {
-    const dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    const dayNames = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
     return dayNames[dayNumber]
 }
 
