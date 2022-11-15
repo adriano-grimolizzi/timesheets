@@ -6,10 +6,11 @@ table {
 
 td,
 th {
-    border: 1px solid #dddddd;    
+    border: 2px solid #dddddd;
+    height: 2rem;
     padding: 8px;
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: rgb(42, 40, 59);
-}
+} */

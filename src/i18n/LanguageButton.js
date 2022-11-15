@@ -3,10 +3,28 @@ import { useTranslation } from "react-i18next"
 const LanguageButton = () => {
   const { i18n } = useTranslation()
 
+  const languages = [
+    {
+      id: 'en',
+      label: 'English',
+    },
+    {
+      id: 'it',
+      label: 'Italiano',
+    },
+  ]
+
   return (
     <>
-      <button onClick={() => i18n.changeLanguage("en")}>English</button>
-      <button onClick={() => i18n.changeLanguage("it")}>Italiano</button>
+      {
+        languages.map((language, index) => (
+          <button
+            key={index}
+            onClick={() => i18n.changeLanguage(language.id)}>
+            {language.label}
+          </button>
+        ))
+      }
     </>
   )
 }

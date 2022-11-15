@@ -1,16 +1,40 @@
-import Table from './components/table/Table';
+import { useState, useEffect } from 'react'
+import styled, { ThemeProvider } from "styled-components"
 
-import "./i18n/i18n";
-import './App.css';
-import Header from './components/header/Header';
+import Table from './components/table/Table'
+import Header from './components/header/Header'
+import { GlobalStyles } from './theme/GlobalStyles'
+import { useTheme } from './theme/useTheme'
 
-const App = () => (
-  <div className='App'>
-    <header className="App-header">
-      <Header />
-      <Table />
-    </header>
-  </div>
-)
+import "./i18n/i18n"
+import './App.css'
 
-export default App;
+const Container = styled.div`
+  margin: 1rem;
+`
+
+const App = () => {
+
+  const { theme, themeLoaded } = useTheme()
+  const [selectedTheme, setSelectedTheme] = useState(theme)
+
+  useEffect(() => {
+    setSelectedTheme(theme)
+  }, [themeLoaded])
+
+  return (
+    <>
+      {
+        themeLoaded && <ThemeProvider theme={selectedTheme}>
+          <GlobalStyles />
+          <Container>
+            <Header setSelectedTheme={setSelectedTheme}/>            
+            <Table />
+          </Container>
+        </ThemeProvider>
+      }
+    </>
+  )
+}
+
+export default App

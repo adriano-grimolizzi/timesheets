@@ -1,5 +1,4 @@
-// import { getPreviousMonth } from "../../utils/date.utils"
-
+import { getNumberOfDays, getPreviousMonth, getPreviousMonthYear } from "../../utils/date.utils";
 import { getArrayFromRange } from "../../utils/array.utils";
 
 export const mapToTableRows = month => month.map((week, index) => (
@@ -15,228 +14,224 @@ export const exampleMonth = {
     {
       dayOfWeek: 1,
       date: 31,
-      pcn: 'previous'
+      status: 'previous'
     },
     {
       dayOfWeek: 2,
       date: 1,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 3,
       date: 2,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 4,
       date: 3,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 5,
       date: 4,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 6,
       date: 5,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 7,
       date: 6,
-      pcn: 'current'
+      status: 'current'
     },
   ],
   [
     {
       dayOfWeek: 1,
       date: 7,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 2,
       date: 8,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 3,
       date: 9,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 4,
       date: 10,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 5,
       date: 11,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 6,
       date: 12,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 7,
       date: 13,
-      pcn: 'current'
+      status: 'current'
     },
   ],
   [
     {
       dayOfWeek: 1,
       date: 14,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 2,
       date: 15,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 3,
       date: 16,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 4,
       date: 17,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 5,
       date: 18,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 6,
       date: 19,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 7,
       date: 20,
-      pcn: 'current'
+      status: 'current'
     },
   ],
   [
     {
       dayOfWeek: 1,
       date: 21,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 2,
       date: 22,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 3,
       date: 23,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 4,
       date: 24,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 5,
       date: 25,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 6,
       date: 26,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 7,
       date: 27,
-      pcn: 'current'
+      status: 'current'
     },
   ],
   [
     {
       dayOfWeek: 1,
       date: 28,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 2,
       date: 29,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 3,
       date: 30,
-      pcn: 'current'
+      status: 'current'
     },
     {
       dayOfWeek: 4,
       date: 1,
-      pcn: 'next'
+      status: 'next'
     },
     {
       dayOfWeek: 5,
       date: 2,
-      pcn: 'next'
+      status: 'next'
     },
     {
       dayOfWeek: 6,
       date: 3,
-      pcn: 'next'
+      status: 'next'
     },
     {
       dayOfWeek: 7,
       date: 4,
-      pcn: 'next'
+      status: 'next'
     },
   ],
   ]
 }
 
-const splitByWeeks = (daysArray) => daysArray.reduce()
+const today = new Date() 
 
-// start: the first day of the month is a tuesday (2).
+const currentMonth = today.getMonth()
+const currentYear = today.getFullYear()
 
-const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
+const firstDayOfCurrentMonth = new Date(Date.UTC(currentYear, currentMonth))
+console.log(firstDayOfCurrentMonth)
 
-const novemberNumber = 10 // months are 0-based
+// const firstDayOfTheMonthNumber = firstDayOfTheMonth.getDay()
 
-const firstDayOfTheMonth = new Date(Date.UTC(2022, novemberNumber))
-const firstDayOfTheMonthNumber = firstDayOfTheMonth.getDay()
+const previousMonth = getPreviousMonth(currentMonth)
+const previousMonthYear = getPreviousMonthYear(previousMonth, currentYear)
 
-// const previousMonth = getPreviousMonth(currentMonth)
+// console.log(previousMonth)
+// console.log(previousMonthYear)
 
-console.log(firstDayOfTheMonth)
-console.log(firstDayOfTheMonthNumber) // 2 - Tuesday
+// console.log(firstDayOfTheMonthNumber) // 2 - Tuesday
 
-const previousMonth = new Date(Date.UTC(2022, novemberNumber - 1)).getMonth()
-const currentMonth = new Date(Date.UTC(2022, novemberNumber)).getMonth()
+const numberOfDaysInPreviousMonth = getNumberOfDays(2022, previousMonth)
+const numberOfDaysInCurrentMonth = getNumberOfDays(2022, currentMonth)
 
-console.log(previousMonth)
-console.log(getDaysInMonth(2022, previousMonth))
+// const numberOfDaysOfPreviousMonth = firstDayOfTheMonthNumber - 1
 
-const numberOfDaysInPreviousMonth = getDaysInMonth(2022, previousMonth)
-const numberOfDaysInCurrentMonth = getDaysInMonth(2022, currentMonth)
+// // console.log(numberOfDaysInPreviousMonth)
 
-const numberOfDaysOfPreviousMonth = firstDayOfTheMonthNumber - 1
+// const firstMondayOfPreviousMonth = numberOfDaysInPreviousMonth - numberOfDaysOfPreviousMonth
 
-console.log(numberOfDaysInPreviousMonth)
+// // console.log(getArrayFromRange(3, 8))
 
-const firstMondayOfPreviousMonth = numberOfDaysInPreviousMonth - numberOfDaysOfPreviousMonth
+// // console.log(getArrayFromRange(firstMondayOfPreviousMonth, numberOfDaysInPreviousMonth))
 
-console.log(getArrayFromRange(3, 8))
+// const previousMonthDaysArray = getArrayFromRange(firstMondayOfPreviousMonth, numberOfDaysInPreviousMonth)
+// const currentMonthDaysArray = getArrayFromRange(1, numberOfDaysInCurrentMonth)
 
-console.log(getArrayFromRange(firstMondayOfPreviousMonth, numberOfDaysInPreviousMonth))
+// const screenDaysArray = [...previousMonthDaysArray, ...currentMonthDaysArray]
 
-const previousMonthDaysArray = getArrayFromRange(firstMondayOfPreviousMonth, numberOfDaysInPreviousMonth)
-const currentMonthDaysArray = getArrayFromRange(1, numberOfDaysInCurrentMonth)
-
-const screenDaysArray = [...previousMonthDaysArray, ...currentMonthDaysArray]
-
-console.log(screenDaysArray)
+// // console.log(screenDaysArray)
