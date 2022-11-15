@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { setToLocalStorage, getFromLocalStorage } from '../utils/storage/storage'
 
-
 export const useTheme = () => {
     const themes = getFromLocalStorage('all-themes')
     const DEFAULT_THEME = themes.data.dark

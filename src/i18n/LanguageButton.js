@@ -5,11 +5,13 @@ const LanguageButton = () => {
 
   const languages = [
     {
-      id: 'en',
+      id: '01',
+      value: 'en',
       label: 'English',
     },
     {
-      id: 'it',
+      id: '02',
+      value: 'it',
       label: 'Italiano',
     },
   ]
@@ -17,10 +19,10 @@ const LanguageButton = () => {
   return (
     <>
       {
-        languages.map((language, index) => (
+        languages.map((language) => (
           <button
-            key={index}
-            onClick={() => i18n.changeLanguage(language.id)}>
+            key={language.id}
+            onClick={() => i18n.changeLanguage(language.value)}>
             {language.label}
           </button>
         ))

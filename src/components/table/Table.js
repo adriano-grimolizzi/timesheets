@@ -1,39 +1,27 @@
-import { useTranslation } from 'react-i18next'
+import { useState } from 'react'
 
-import TodayIs from '../TodayIs'
-import { exampleMonth, mapToTableRows } from './Table.utils'
-import { getPreviousMonth } from '../../utils/date.utils'
+import { getFullCalendar } from './Table.utils'
+import MonthSelector from './MonthSelector'
 
 import './Table.css'
+import TableHeaders from './TableHeaders'
 
 const Table = () => {
-  const { t } = useTranslation();
 
   const date = new Date()
-  // const currentYear = date.getFullYear()
-  // const currentMonth = date.getMonth() + 1
-  // const currentDate = date.getDate()
-  // const currentDay = date.getDay()
+  const startingMonth = date.getMonth()
+  const startingYear = date.getFullYear()
 
-  // const firstDayOfTheMonth = new Date(Date.UTC(currentYear, currentMonth))
-
-  // const previousMonth = getPreviousMonth(currentMonth)
+  const [month, setMonth] = useState(startingMonth)
+  const [year, setYear] = useState(startingYear)
 
   return (
     <>
-      <TodayIs/>
+      <MonthSelector month={month} year={year} setMonth={setMonth} setYear={setYear} />
       <table>
         <tbody>
-          <tr>
-            <th>{t('days.1')}</th>
-            <th>{t('days.2')}</th>
-            <th>{t('days.3')}</th>
-            <th>{t('days.4')}</th>
-            <th>{t('days.5')}</th>
-            <th>{t('days.6')}</th>
-            <th>{t('days.7')}</th>
-          </tr>
-          {mapToTableRows(exampleMonth.weeks)}
+          <TableHeaders />
+          {getFullCalendar(month, year)}
         </tbody>
       </table>
     </>

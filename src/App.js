@@ -23,17 +23,13 @@ const App = () => {
   }, [themeLoaded])
 
   return (
-    <>
-      {
-        themeLoaded && <ThemeProvider theme={selectedTheme}>
-          <GlobalStyles />
-          <Container>
-            <Header setSelectedTheme={setSelectedTheme}/>            
-            <Table />
-          </Container>
-        </ThemeProvider>
-      }
-    </>
+    themeLoaded && <ThemeProvider theme={selectedTheme}>
+      <GlobalStyles />
+      <Container>
+        <Header setSelectedTheme={setSelectedTheme} />
+        <Table />
+      </Container>
+    </ThemeProvider>
   )
 }
 

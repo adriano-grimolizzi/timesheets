@@ -9,6 +9,4 @@ const reduceFunction = (previousValue, currentValue, index) => {
     return previousValue
 }
 
-const initialValue = []
-
-export const splitInWeeks = (input) => input.reduce(reduceFunction, initialValue)
+export const splitInWeeks = (input) => input.reduce(reduceFunction, [])

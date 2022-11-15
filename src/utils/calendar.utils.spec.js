@@ -1,21 +1,91 @@
-import { splitInWeeks } from './calendar.utils'
+import { splitInWeeks } from "./calendar.utils"
 
-describe('calendar utils', () => {
-    test('split in weeks', () => {
-        const input = [
-            29, 30, 1, 2, 3, 4, 5,
-            6, 7, 8, 9, 10, 11, 12,
-            13, 14, 15, 16, 17, 18, 19,
-            20, 21, 22, 23, 24, 25, 26,
-            27, 28, 29, 30, 31, 1, 2,
-        ]
-        const expected = [
-            [29, 30, 1, 2, 3, 4, 5,],
-            [6, 7, 8, 9, 10, 11, 12,],
-            [13, 14, 15, 16, 17, 18, 19,],
-            [20, 21, 22, 23, 24, 25, 26,],
-            [27, 28, 29, 30, 31, 1, 2,],
-        ]
-        expect(splitInWeeks(input)).toEqual(expected)
-    })
+describe("calendar utils", () => {
+  test("split in weeks", () => {
+    const input = [
+      { dayOfMonth: 31, month: 9, year: 2022 },
+      { dayOfMonth: 1, month: 10, year: 2022 },
+      { dayOfMonth: 2, month: 10, year: 2022 },
+      { dayOfMonth: 3, month: 10, year: 2022 },
+      { dayOfMonth: 4, month: 10, year: 2022 },
+      { dayOfMonth: 5, month: 10, year: 2022 },
+      { dayOfMonth: 6, month: 10, year: 2022 },
+      { dayOfMonth: 7, month: 10, year: 2022 },
+      { dayOfMonth: 8, month: 10, year: 2022 },
+      { dayOfMonth: 9, month: 10, year: 2022 },
+      { dayOfMonth: 10, month: 10, year: 2022 },
+      { dayOfMonth: 11, month: 10, year: 2022 },
+      { dayOfMonth: 12, month: 10, year: 2022 },
+      { dayOfMonth: 13, month: 10, year: 2022 },
+      { dayOfMonth: 14, month: 10, year: 2022 },
+      { dayOfMonth: 15, month: 10, year: 2022 },
+      { dayOfMonth: 16, month: 10, year: 2022 },
+      { dayOfMonth: 17, month: 10, year: 2022 },
+      { dayOfMonth: 18, month: 10, year: 2022 },
+      { dayOfMonth: 19, month: 10, year: 2022 },
+      { dayOfMonth: 20, month: 10, year: 2022 },
+      { dayOfMonth: 21, month: 10, year: 2022 },
+      { dayOfMonth: 22, month: 10, year: 2022 },
+      { dayOfMonth: 23, month: 10, year: 2022 },
+      { dayOfMonth: 24, month: 10, year: 2022 },
+      { dayOfMonth: 25, month: 10, year: 2022 },
+      { dayOfMonth: 26, month: 10, year: 2022 },
+      { dayOfMonth: 27, month: 10, year: 2022 },
+      { dayOfMonth: 28, month: 10, year: 2022 },
+      { dayOfMonth: 29, month: 10, year: 2022 },
+      { dayOfMonth: 30, month: 10, year: 2022 },
+      { dayOfMonth: 1, month: 11, year: 2022 },
+      { dayOfMonth: 2, month: 11, year: 2022 },
+      { dayOfMonth: 3, month: 11, year: 2022 },
+      { dayOfMonth: 4, month: 11, year: 2022 },
+    ]
+    const expected = [
+      [
+        { dayOfMonth: 31, month: 9, year: 2022 },
+        { dayOfMonth: 1, month: 10, year: 2022 },
+        { dayOfMonth: 2, month: 10, year: 2022 },
+        { dayOfMonth: 3, month: 10, year: 2022 },
+        { dayOfMonth: 4, month: 10, year: 2022 },
+        { dayOfMonth: 5, month: 10, year: 2022 },
+        { dayOfMonth: 6, month: 10, year: 2022 },
+      ],
+      [
+        { dayOfMonth: 7, month: 10, year: 2022 },
+        { dayOfMonth: 8, month: 10, year: 2022 },
+        { dayOfMonth: 9, month: 10, year: 2022 },
+        { dayOfMonth: 10, month: 10, year: 2022 },
+        { dayOfMonth: 11, month: 10, year: 2022 },
+        { dayOfMonth: 12, month: 10, year: 2022 },
+        { dayOfMonth: 13, month: 10, year: 2022 },
+      ],
+      [
+        { dayOfMonth: 14, month: 10, year: 2022 },
+        { dayOfMonth: 15, month: 10, year: 2022 },
+        { dayOfMonth: 16, month: 10, year: 2022 },
+        { dayOfMonth: 17, month: 10, year: 2022 },
+        { dayOfMonth: 18, month: 10, year: 2022 },
+        { dayOfMonth: 19, month: 10, year: 2022 },
+        { dayOfMonth: 20, month: 10, year: 2022 },
+      ],
+      [
+        { dayOfMonth: 21, month: 10, year: 2022 },
+        { dayOfMonth: 22, month: 10, year: 2022 },
+        { dayOfMonth: 23, month: 10, year: 2022 },
+        { dayOfMonth: 24, month: 10, year: 2022 },
+        { dayOfMonth: 25, month: 10, year: 2022 },
+        { dayOfMonth: 26, month: 10, year: 2022 },
+        { dayOfMonth: 27, month: 10, year: 2022 },
+      ],
+      [
+        { dayOfMonth: 28, month: 10, year: 2022 },
+        { dayOfMonth: 29, month: 10, year: 2022 },
+        { dayOfMonth: 30, month: 10, year: 2022 },
+        { dayOfMonth: 1, month: 11, year: 2022 },
+        { dayOfMonth: 2, month: 11, year: 2022 },
+        { dayOfMonth: 3, month: 11, year: 2022 },
+        { dayOfMonth: 4, month: 11, year: 2022 },
+      ],
+    ]
+    expect(splitInWeeks(input)).toEqual(expected)
+  })
 })

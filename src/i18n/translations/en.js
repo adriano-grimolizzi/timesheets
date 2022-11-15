@@ -7,7 +7,7 @@ export default {
         4: 'Thursday',
         5: 'Friday',
         6: 'Saturday',
-        7: 'Sunday',
+        0: 'Sunday',
     },
     months: {
         0: 'January',

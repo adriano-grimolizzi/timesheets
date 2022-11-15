@@ -1,4 +1,3 @@
-import { getNumberOfDays } from "../../utils/date.utils"
 import { mapToTableRows } from "./Table.utils"
 
 describe('Table utils', () => {
@@ -194,6 +193,4 @@ describe('Table utils', () => {
 
         expect(mapToTableRows(input).toString()).toEqual(expected.toString())
     })
-
-
 })

@@ -1,0 +1,15 @@
+.selector {
+    margin: auto;
+    width: 40%;
+    display: flex;
+}
+
+.selector > * {
+    text-align: center;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.current {
+    width: 12rem;
+}
