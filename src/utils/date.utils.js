@@ -14,3 +14,8 @@ export const getLastDate = (month, year, numberOfDays) => new Date(Date.UTC(year
 export const getNumberOfPreviousMonthLeftovers = (firstDayOfCurrentMonth_dayOfWeek) => firstDayOfCurrentMonth_dayOfWeek === 0 ? 6 : firstDayOfCurrentMonth_dayOfWeek - 1
 
 export const getNumberOfNextMonthLeftovers = (numberOfDaysInCurrentMonth) => 7 - numberOfDaysInCurrentMonth 
+
+export const equals = (date1, date2) => 
+    date1.dayOfMonth === date2.getDate() &&
+    date1.month === date2.getMonth() &&
+    date1.year === date2.getFullYear()

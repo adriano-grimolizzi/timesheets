@@ -4,11 +4,13 @@ import TodayIs from "../TodayIs";
 
 import './Header.css'
 
-const Header = ({ setSelectedTheme }) => <div className='header'>
-    <h3 className="title">Timesheets</h3>
-    <LanguageButton />
-    <ThemeSelector setSelectedTheme={setSelectedTheme} />
-    <TodayIs />
-</div>
+const Header = ({ setSelectedTheme }) => (
+    <div className='header'>
+        <h3 className="title">Timesheets</h3>
+        <LanguageButton />
+        <ThemeSelector setSelectedTheme={setSelectedTheme} />
+        <TodayIs />
+    </div>
+)
 
 export default Header

@@ -19,9 +19,11 @@ const MonthSelector = ({ month, year, setMonth, setYear }) => {
 
     return (
         <div className='selector'>
-            <h3 onClick={handlePrevious}>&lt;</h3>
-            <h2 className='current'>{t('months.' + month) + ' ' + year}</h2>
-            <h3 onClick={handleNext}>&gt;</h3>
+            <h3 onClick={handlePrevious} className='no-select'> &lt; </h3>
+            <h2 className='current'>
+                {t('months.' + month) + ' ' + year}
+            </h2>
+            <h3 onClick={handleNext} className='no-select'> &gt; </h3>
         </div>
     )
 }

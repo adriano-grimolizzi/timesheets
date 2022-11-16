@@ -1,4 +1,5 @@
 table {
+    table-layout: fixed ;
     margin: auto;
     border-collapse: collapse;
     width: 100%;

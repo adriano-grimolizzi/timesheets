@@ -1,0 +1,18 @@
+.today {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 2rem;
+    height: 2rem;
+    background-color: red;
+}
+
+.previous,
+.next {
+
+    color: gray;
+}
