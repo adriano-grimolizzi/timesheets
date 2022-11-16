@@ -10,6 +10,7 @@ const TodayIs = ({ date = new Date() }) => {
       dayOfWeek: t('days.' + date.getDay()),
       dayOfMonth: date.getDate(),
       month: t('months.' + date.getMonth()),
+      monthNumber: date.getMonth(),
       year: date.getFullYear(),
     })}</p>
   )

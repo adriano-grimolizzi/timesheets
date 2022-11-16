@@ -8,8 +8,7 @@ table {
 td,
 th {
     border: 2px solid #dddddd;
-    height: 2rem;
-    padding: 8px;
+    height: 3rem;
 }
 
 /* tr:nth-child(even) {

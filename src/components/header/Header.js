@@ -1,6 +1,6 @@
 import LanguageButton from "../../i18n/LanguageButton";
 import ThemeSelector from "../../theme/ThemeSwitcher"
-import TodayIs from "../TodayIs";
+import TodayIs from "../todayIs/TodayIs";
 
 import './Header.css'
 

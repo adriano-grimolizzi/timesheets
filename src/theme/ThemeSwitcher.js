@@ -24,7 +24,7 @@ export default (props) => {
   </button>)
 
   return (
-    <div>
+    <div className="theme">
       {
         themes.length > 0 &&
         themes.map(theme => (

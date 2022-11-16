@@ -9,4 +9,8 @@ export const GlobalStyles = createGlobalStyle`
     text-align: center;
     align-items: center;
   }
+
+  .theme {
+    margin-left: 0.8rem;
+  }
 `

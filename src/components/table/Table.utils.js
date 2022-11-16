@@ -4,14 +4,15 @@ import { splitInWeeks } from "../../utils/calendar.utils"
 import { getFirstDate, getLastDate, getNextMonth, getNextMonthYear, getNumberOfDays, getNumberOfNextMonthLeftovers, getNumberOfPreviousMonthLeftovers, getPreviousMonth, getPreviousMonthYear } from "../../utils/date.utils"
 import Cell from "../cell/Cell"
 
-export const mapToTableRows = (month) => month.map((week, weekIndex) => (
-  <tr key={`w-${weekIndex}`}>{week.map((date) => (
-    <td key={`d-${weekIndex}-${date.dayOfMonth}`}>
-      <Cell date={date}/>
-    </td>
-  ))}
-  </tr>
-))
+export const mapToTableRows = (month, setDate, setShowModal) =>
+  month.map((week, weekIndex) => (
+    <tr key={`w-${weekIndex}`}>{week.map((date) => (
+      <td key={`d-${weekIndex}-${date.dayOfMonth}`}>
+        <Cell date={date} setDate={setDate} setShowModal={setShowModal} />
+      </td>
+    ))}
+    </tr>
+  ))
 
 export const getPrevCurrNextMonthArray = (month, year) => {
   const firstDayOfCurrentMonth = getFirstDate(month, year)
@@ -25,10 +26,10 @@ export const getPrevCurrNextMonthArray = (month, year) => {
 const buildCurrentMonthArray = (month, year) => {
   const numberOfDaysInCurrentMonth = getNumberOfDays(month, year)
   const currentMonthDaysArray = getArrayFromRange(1, numberOfDaysInCurrentMonth)
-  return currentMonthDaysArray.map(day => ({ dayOfMonth: day, month, year}))
+  return currentMonthDaysArray.map(day => ({ dayOfMonth: day, month, year }))
 }
 
-const buildPreviousMonthArray = (month, year, firstDayOfCurrentMonth) => {  
+const buildPreviousMonthArray = (month, year, firstDayOfCurrentMonth) => {
   if (firstDayOfCurrentMonth.getDay() === MONDAY) {
     return []
   }
@@ -42,10 +43,10 @@ const buildPreviousMonthArray = (month, year, firstDayOfCurrentMonth) => {
   return previousMonthDaysArray.map(day => ({ dayOfMonth: day, month: previousMonth, year: previousMonthYear, status: 'previous' }))
 }
 
-const buildNextMonthArray = (month, year) => {  
+const buildNextMonthArray = (month, year) => {
   const numberOfDaysInCurrentMonth = getNumberOfDays(month, year)
   const lastDayOfCurrentMonth = getLastDate(month, year, numberOfDaysInCurrentMonth)
-  
+
   if (lastDayOfCurrentMonth.getDay() === SUNDAY) {
     return []
   }
@@ -57,8 +58,8 @@ const buildNextMonthArray = (month, year) => {
   return nextMonthDaysArray.map(day => ({ dayOfMonth: day, month: nextMonth, year: nextMonthYear, status: 'next' }))
 }
 
-export const getFullCalendar = (month, year) => {
+export const getFullCalendar = (month, year, setDate, setShowModal) => {
   const screenDaysArray = getPrevCurrNextMonthArray(month, year)
   const weeksArray = splitInWeeks(screenDaysArray)
-  return mapToTableRows(weeksArray)
+  return mapToTableRows(weeksArray, setDate, setShowModal)
 }

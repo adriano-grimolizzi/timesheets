@@ -8,5 +8,7 @@
 }
 
 button {
-    height: 2rem;
+    height: 1.8rem;
+    bottom: -9px;
+    position: relative;
 }

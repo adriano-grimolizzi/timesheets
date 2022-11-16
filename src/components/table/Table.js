@@ -1,12 +1,12 @@
 import { useState } from 'react'
 
 import { getFullCalendar } from './Table.utils'
-import MonthSelector from './MonthSelector'
+import TableHeaders from './TableHeaders'
+import MonthSelector from '../monthSelector/MonthSelector'
 
 import './Table.css'
-import TableHeaders from './TableHeaders'
 
-const Table = () => {
+const Table = ({setDate, setShowModal}) => {
 
   const date = new Date()
   const startingMonth = date.getMonth()
@@ -21,7 +21,7 @@ const Table = () => {
       <table>
         <tbody>
           <TableHeaders />
-          {getFullCalendar(month, year)}
+          {getFullCalendar(month, year, setDate, setShowModal)}
         </tbody>
       </table>
     </>

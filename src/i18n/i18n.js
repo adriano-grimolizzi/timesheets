@@ -4,6 +4,9 @@ import { initReactI18next } from 'react-i18next'
 
 import EN from './translations/en'
 import IT from './translations/it'
+import FR from './translations/fr'
+import ES from './translations/es'
+import JP from './translations/jp'
 
 i18n
   .use(LanguageDetector)
@@ -12,6 +15,9 @@ i18n
     resources: {
       en: { translations: EN, },
       it: { translations: IT, },
+      fr: { translations: FR, },
+      es: { translations: ES, },
+      jp: { translations: JP, },
     },
     fallbackLng: "en",
     debug: false,
