@@ -1,4 +1,4 @@
-export default {
+const translations = {
     todayIsMessage: '今日は{{year}}年{{monthNumber}}月{{dayOfMonth}}日{{dayOfWeek}}曜日です。',
     days: {
         1: '月',
@@ -24,3 +24,5 @@ export default {
         11: '十二月',
     }
 }
+
+export default translations

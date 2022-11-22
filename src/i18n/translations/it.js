@@ -1,4 +1,4 @@
-export default {
+const translations = {
     todayIsMessage: 'Oggi è {{dayOfWeek}} {{dayOfMonth}} {{month}} {{year}}.',
     days: {
         1: 'Lunedì',
@@ -24,3 +24,5 @@ export default {
         11: 'Dicembre',
     }
 }
+
+export default translations

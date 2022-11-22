@@ -24,7 +24,7 @@ const App = () => {
 
   useEffect(() => {
     setSelectedTheme(theme)
-  }, [themeLoaded])
+  }, [themeLoaded, theme])
 
   return (
     themeLoaded && <ThemeProvider theme={selectedTheme}>
