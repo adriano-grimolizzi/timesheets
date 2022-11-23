@@ -32,7 +32,7 @@ const languages = [
 
 const LanguageButton = () => {
   const { i18n } = useTranslation()
-  const startingLanguage = languages.find(language => language.value === i18next.language || 'en')
+  const startingLanguage = languages.find(language => language.value === i18next.language)
   const [selectedLanguage, setSelectedLanguage] = useState(startingLanguage)
 
   const handleChange = (event) => {
@@ -44,7 +44,7 @@ const LanguageButton = () => {
 
   return (
     <>
-      <select value={selectedLanguage.value} onChange={handleChange}>
+      <select value={selectedLanguage?.value} onChange={handleChange}>
         {
           languages.map((language) => (
             <option
