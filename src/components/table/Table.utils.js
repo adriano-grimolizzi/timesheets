@@ -26,8 +26,9 @@ export const getPrevCurrNextMonthArray = (month, year) => {
 const buildCurrentMonthArray = (month, year) => {
   const numberOfDaysInCurrentMonth = getNumberOfDays(month, year)
   const currentMonthDaysArray = getArrayFromRange(1, numberOfDaysInCurrentMonth)
-  return currentMonthDaysArray.map(day => ({ dayOfMonth: day, month, year }))
+  return currentMonthDaysArray.map((day) => ({ dayOfMonth: day, month, year }))
 }
+
 
 const buildPreviousMonthArray = (month, year, firstDayOfCurrentMonth) => {
   if (firstDayOfCurrentMonth.getDay() === MONDAY) {
@@ -35,27 +36,29 @@ const buildPreviousMonthArray = (month, year, firstDayOfCurrentMonth) => {
   }
   const previousMonth = getPreviousMonth(month)
   const previousMonthYear = getPreviousMonthYear(previousMonth, year)
-
+  
   const numberOfPreviousMonthLeftovers = getNumberOfPreviousMonthLeftovers(firstDayOfCurrentMonth.getDay())
   const numberOfDaysInPreviousMonth = getNumberOfDays(previousMonth, previousMonthYear)
   const firstMondayOfPreviousMonth = numberOfDaysInPreviousMonth - numberOfPreviousMonthLeftovers + 1
   const previousMonthDaysArray = getArrayFromRange(firstMondayOfPreviousMonth, numberOfDaysInPreviousMonth)
-  return previousMonthDaysArray.map(day => ({ dayOfMonth: day, month: previousMonth, year: previousMonthYear, status: 'previous' }))
+  const toPreviousMonth = (day) => ({ dayOfMonth: day, month: previousMonth, year: previousMonthYear, status: 'previous' })
+  return previousMonthDaysArray.map(toPreviousMonth)
 }
 
 const buildNextMonthArray = (month, year) => {
   const numberOfDaysInCurrentMonth = getNumberOfDays(month, year)
   const lastDayOfCurrentMonth = getLastDate(month, year, numberOfDaysInCurrentMonth)
-
+  
   if (lastDayOfCurrentMonth.getDay() === SUNDAY) {
     return []
   }
   const nextMonth = getNextMonth(month, year)
   const nextMonthYear = getNextMonthYear(month, year)
-
+  
   const numberOfNextMonthLeftovers = getNumberOfNextMonthLeftovers(lastDayOfCurrentMonth.getDay())
   const nextMonthDaysArray = getArrayFromRange(1, numberOfNextMonthLeftovers)
-  return nextMonthDaysArray.map(day => ({ dayOfMonth: day, month: nextMonth, year: nextMonthYear, status: 'next' }))
+  const toNextMonth = (day) => ({ dayOfMonth: day, month: nextMonth, year: nextMonthYear, status: 'next' })
+  return nextMonthDaysArray.map(toNextMonth)
 }
 
 export const getFullCalendar = (month, year, setDate, setShowModal) => {
