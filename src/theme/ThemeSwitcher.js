@@ -10,7 +10,7 @@ export default (props) => {
   const [themes, setThemes] = useState([])
   const { setMode } = useTheme()
 
-  const themeSwitcher = selectedTheme => {
+  const themeSwitcher = (selectedTheme) => {
     setMode(selectedTheme)
     props.setSelectedTheme(selectedTheme)
   }
@@ -19,17 +19,19 @@ export default (props) => {
     setThemes(_.keys(data))
   }, [data])
 
-  const ThemeCard = props => (<button onClick={() => themeSwitcher(props.theme)}>
+  const ThemeCard = (props) => (<button onClick={() => themeSwitcher(props.theme)}>
     {props.theme.name}
   </button>)
+
+  const byThemeCard = (theme) => (
+    <ThemeCard theme={data[theme]} key={data[theme].id} />
+  )
 
   return (
     <div className="theme">
       {
         themes.length > 0 &&
-        themes.map(theme => (
-          <ThemeCard theme={data[theme]} key={data[theme].id} />
-        ))
+        themes.map(byThemeCard)
       }
     </div>
   )
