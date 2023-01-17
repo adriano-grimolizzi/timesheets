@@ -2,7 +2,7 @@ import i18next from "i18next"
 import { useState } from "react"
 import { useTranslation } from "react-i18next"
 
-import { languages } from "./languages"
+import { languages } from "../../i18n/languages"
 
 const LanguageButton = () => {
   const { i18n } = useTranslation()

@@ -1,7 +1,5 @@
 import { useTranslation } from "react-i18next"
 
-import "./TodayIs.css"
-
 const TodayIs = ({ date = new Date() }) => {
   const { t } = useTranslation()
 
@@ -14,9 +12,7 @@ const TodayIs = ({ date = new Date() }) => {
   })
 
   return (
-    <p className="todayContainer">
-      {todayIsMessage}
-    </p>
+    <p className='today-is'>{todayIsMessage}</p>
   )
 }
 

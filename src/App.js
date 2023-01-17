@@ -11,11 +11,10 @@ import "./i18n/i18n"
 import './App.css'
 
 const Container = styled.div`
-  margin: 1rem;
+  margin: 0 1rem;
 `
 
 const App = () => {
-
   const [date, setDate] = useState({})
   const { theme, themeLoaded } = useTheme()
   const [selectedTheme, setSelectedTheme] = useState(theme)
@@ -29,9 +28,8 @@ const App = () => {
   return (
     themeLoaded && <ThemeProvider theme={selectedTheme}>
       <GlobalStyles />
+      <Header setSelectedTheme={setSelectedTheme} />
       <Container>
-        <Header setSelectedTheme={setSelectedTheme} />
-        {/* <pre>{JSON.stringify(date)}</pre> */}
         {showModal && <Modal date={date} onClose={() => setShowModal(false)} />}
         <Table setDate={setDate} setShowModal={setShowModal} />
       </Container>

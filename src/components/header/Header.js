@@ -1,15 +1,15 @@
-import LanguageButton from "../../i18n/LanguageButton";
+import LanguageButton from "./LanguageButton";
 import ThemeSelector from "../../theme/ThemeSwitcher"
-import TodayIs from "../todayIs/TodayIs";
+import TodayIs from "./TodayIs";
 
 import './Header.css'
 
 const Header = ({ setSelectedTheme }) => (
-    <div className='header'>
+    <div className='header-container'>
         <h3 className="title">Timesheets</h3>
         <LanguageButton />
         <ThemeSelector setSelectedTheme={setSelectedTheme} />
-        <TodayIs />
+        <TodayIs/>
     </div>
 )
 

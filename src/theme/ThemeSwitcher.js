@@ -4,7 +4,7 @@ import _ from 'lodash'
 import { useTheme } from './useTheme'
 import { getFromLocalStorage } from '../utils/storage/storage'
 
-export default (props) => {
+const ThemeSwitcher = (props) => {
   const themesFromStore = getFromLocalStorage('all-themes')
   const [data] = useState(themesFromStore.data)
   const [themes, setThemes] = useState([])
@@ -36,3 +36,5 @@ export default (props) => {
     </div>
   )
 }
+
+export default ThemeSwitcher
