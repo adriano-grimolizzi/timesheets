@@ -22,13 +22,13 @@ const MonthSelector = ({ month, year, setMonth, setYear }) => {
     setYear(getNextMonthYear(month, year))
   }
 
+  const currentMonth = t('months.' + month) + ' ' + year
+
   return (
-    <div className='selector'>
-      <h3 onClick={handlePrevious} className='cursor-pointer'>&lt;</h3>
-      <h2 className='current'>
-        {t('months.' + month) + ' ' + year}
-      </h2>
-      <h3 onClick={handleNext} className='cursor-pointer'>&gt;</h3>
+    <div className='selector-container'>
+      <p onClick={handlePrevious} className='arrow'>&lt;</p>
+      <h2 className='current'>{currentMonth}</h2>
+      <p onClick={handleNext} className='arrow'>&gt;</p>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 {
   "data": {
     "dark": {
-      "id": "T_007",
+      "id": "T_001",
       "name": "Dark",
       "colors": {
         "color": "white",
@@ -10,7 +10,7 @@
       }
     },
     "light": {
-      "id": "T_001",
+      "id": "T_002",
       "name": "Light",
       "colors": {
         "color": "black",
